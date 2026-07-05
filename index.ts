@@ -75,3 +75,22 @@ class CryptoFlowApp {
     constructor() {
         this.wallet = new Wallet(100);
     }
+
+    run(): void {
+        console.log("Starting CryptoFlow Ledger Simulation...\n");
+
+        this.wallet.receive(50, "Bitcoin mining reward");
+        this.wallet.send(30, "Wallet transfer");
+        this.wallet.send(200, "Large Bitcoin payment attempt");
+        this.wallet.receive(120, "Wallet top-up");
+
+        this.wallet.summary();
+        this.wallet.printHistory();
+
+        console.log("\nSimulation completed.");
+    }
+}
+
+// Execute application
+const app = new CryptoFlowApp();
+app.run();
